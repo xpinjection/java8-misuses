@@ -7,21 +7,19 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.stream;
+package org.javaday.java8.misused.stream;
 
-import com.xpinjection.misuses.Permission;
-import com.xpinjection.misuses.Role;
-import com.xpinjection.misuses.User;
+import org.javaday.java8.misused.Permission;
+import org.javaday.java8.misused.Role;
+import org.javaday.java8.misused.User;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
+//TODO: Compare with "ImparativeCodeMix" example and either mix them or leave one of them
 public class CommonChecksAsMethodReferences {
+
     private static final String ADMIN_ROLE = "admin";
 
     private final List<User> users = new ArrayList<>();

@@ -7,26 +7,23 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.optional;
+package org.javaday.java8.misused.optional;
 
-import com.xpinjection.misuses.User;
+import org.javaday.java8.misused.User;
 
 import java.util.Optional;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
+//TODO: Compare with "OptionalElvis" and "WrapIntoOptional" examples and either mix them or leave some of them
 public class ReturnPartOfOptional {
-    public class Misuse {
+
+    class Misuse {
         public Optional<String> getUserName(Long userId) {
             Optional<User> user = findById(userId);
-            return user.isPresent() ? Optional.of(user.get().getName())
-                    : Optional.<String>empty();
+            return user.isPresent() ? Optional.of(user.get().getName()) : Optional.empty();
         }
     }
 
-    public class Correct {
+    class Correct {
         public Optional<String> getUserName(Long userId) {
             return findById(userId).map(User::getName);
         }

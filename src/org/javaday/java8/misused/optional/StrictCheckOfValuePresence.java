@@ -7,18 +7,16 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.optional;
+package org.javaday.java8.misused.optional;
 
-import com.xpinjection.misuses.User;
+import org.javaday.java8.misused.User;
 
 import java.util.Optional;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
+
 public class StrictCheckOfValuePresence {
-    public class Misuse {
+
+    class Misuse {
         public String getUserName(Long userId) {
             Optional<User> user = findById(userId);
             if (user.isPresent()) {
@@ -28,7 +26,7 @@ public class StrictCheckOfValuePresence {
         }
     }
 
-    public class Correct {
+    class Correct {
         public String getUserName(Long userId) {
             return findById(userId)
                     .orElseThrow(() -> new IllegalStateException("User not found"))

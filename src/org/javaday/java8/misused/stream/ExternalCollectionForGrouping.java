@@ -7,10 +7,10 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.stream;
+package org.javaday.java8.misused.stream;
 
-import com.xpinjection.misuses.Permission;
-import com.xpinjection.misuses.User;
+import org.javaday.java8.misused.Permission;
+import org.javaday.java8.misused.User;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,11 +19,9 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.*;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
+//TODO: Decide whether to show or not as it's a bit complex example as for me
 public class ExternalCollectionForGrouping {
+
     private final Set<User> users = new HashSet<>();
 
     public class Misuse {

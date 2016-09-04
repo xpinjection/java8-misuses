@@ -7,18 +7,17 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.optional;
+package org.javaday.java8.misused.optional;
 
-import com.xpinjection.misuses.User;
+import org.javaday.java8.misused.User;
 
 import java.util.Optional;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
+//TODO: I would rename to "InternalOptionalUsage", because it's what we want to emphasize here.
 public class NullableDependency {
-    public class Misuse {
+
+    class Misuse {
+
         private Printer printer;
 
         public void process(User user) {
@@ -33,7 +32,8 @@ public class NullableDependency {
         }
     }
 
-    public class Correct {
+    class Correct {
+
         private Optional<Printer> printer = Optional.empty();
 
         public void process(User user) {
@@ -46,7 +46,7 @@ public class NullableDependency {
         }
     }
 
-    public interface Printer {
+    interface Printer {
         void print(User user);
     }
 }

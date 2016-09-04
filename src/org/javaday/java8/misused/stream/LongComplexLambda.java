@@ -7,10 +7,10 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.stream;
+package org.javaday.java8.misused.stream;
 
-import com.xpinjection.misuses.Permission;
-import com.xpinjection.misuses.User;
+import org.javaday.java8.misused.Permission;
+import org.javaday.java8.misused.User;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -18,10 +18,7 @@ import java.util.function.Predicate;
 
 import static java.util.stream.Collectors.toSet;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
+//TODO: Compare with "DoNotNeglectDataStructures" example and either mix them or leave one of them
 public class LongComplexLambda {
     private final Set<User> users = new HashSet<>();
 

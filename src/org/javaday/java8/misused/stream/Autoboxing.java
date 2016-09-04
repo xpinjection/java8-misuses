@@ -7,18 +7,16 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.stream;
+package org.javaday.java8.misused.stream;
 
-import com.xpinjection.misuses.User;
+import org.javaday.java8.misused.User;
 
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
+//TODO: I would use diff name here like "PreferSpecializedStreams"
 public class Autoboxing {
+
     private final Set<User> users = new HashSet<>();
 
     public class Misuse {

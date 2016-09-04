@@ -7,19 +7,17 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.optional;
+package org.javaday.java8.misused.optional;
 
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
 public class OptionalConstructorParameters {
-    public class Misuse {
+
+    class Misuse {
+
         public List<Email> create() {
             Email noAttachment = new Email("First!", "No attachment", Optional.<Attachment>empty());
             Attachment attachment = new Attachment("/mnt/files/image.png", 370);
@@ -52,7 +50,8 @@ public class OptionalConstructorParameters {
         }
     }
 
-    public class Correct {
+    class Correct {
+
         public List<Email> create() {
             Email noAttachment = new Email("First!", "No attachment");
             Attachment attachment = new Attachment("/mnt/files/image.png", 370);
@@ -93,7 +92,7 @@ public class OptionalConstructorParameters {
         }
     }
 
-    public class Attachment {
+    class Attachment {
         private final String path;
         private final int size;
 
