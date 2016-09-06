@@ -9,6 +9,8 @@
 // ============================================================================
 package com.xpinjection.java8.misused.stream;
 
+import com.xpinjection.java8.misused.Annotations.Good;
+import com.xpinjection.java8.misused.Annotations.Ugly;
 import com.xpinjection.java8.misused.User;
 
 import java.util.ArrayList;
@@ -18,12 +20,11 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.toList;
 
-//TODO: I would delete this example as other examples () cover this case already
 public class ManualCollection {
-
     private final Set<User> users = new HashSet<>();
 
-    public class Misuse {
+    @Ugly
+    class ResultsAreAggregatedInExternalCollection {
         public List<String> getUserNames() {
             List<String> names = new ArrayList<>();
             users.stream().map(User::getName).forEach(names::add);
@@ -31,7 +32,8 @@ public class ManualCollection {
         }
     }
 
-    public class Correct {
+    @Good
+    class ResultsAreCollectedWithStreamCollectors {
         public List<String> getUserNames() {
             return users.stream().map(User::getName).collect(toList());
         }

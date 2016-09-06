@@ -1,6 +1,5 @@
 package com.xpinjection.java8.misused.stream;
 
-import com.xpinjection.java8.misused.Annotations;
 import com.xpinjection.java8.misused.Annotations.Good;
 import com.xpinjection.java8.misused.Annotations.Ugly;
 
@@ -10,10 +9,8 @@ import java.util.Set;
 import static java.util.stream.Collectors.toList;
 
 public class DoNotNeglectDataStructures {
-
     @Ugly
     class UnnecessaryUseOfNestedStreamOperations {
-
         public List<Order> filterOrdersByStatuses(List<Order> orders, Set<Status> appropriateStatuses) {
             return orders.stream()
                     .filter(order ->
@@ -25,7 +22,6 @@ public class DoNotNeglectDataStructures {
 
     @Good
     class UseOfDataStructure {
-
         public List<Order> filterOrdersByStatuses(List<Order> orders, Set<Status> appropriateStatuses) {
             return orders.stream()
                     .filter(order -> appropriateStatuses.contains(order.getStatus()))
@@ -33,14 +29,14 @@ public class DoNotNeglectDataStructures {
         }
     }
 
-    class Order{
-        public Status getStatus(){
+    class Order {
+        public Status getStatus() {
             return null; //stub
         }
         //some other code...
     }
 
-    class Status{
+    class Status {
         //some other code...
     }
 }

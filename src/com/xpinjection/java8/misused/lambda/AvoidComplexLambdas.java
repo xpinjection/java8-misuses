@@ -9,7 +9,6 @@
 // ============================================================================
 package com.xpinjection.java8.misused.lambda;
 
-import com.xpinjection.java8.misused.Annotations;
 import com.xpinjection.java8.misused.Annotations.Good;
 import com.xpinjection.java8.misused.Annotations.Ugly;
 import com.xpinjection.java8.misused.Permission;
@@ -22,12 +21,10 @@ import java.util.function.Predicate;
 import static java.util.stream.Collectors.toSet;
 
 public class AvoidComplexLambdas {
-
     private final Set<User> users = new HashSet<>();
 
     @Ugly
-    public class UsingComplexLambdaInPlace {
-
+    class UsingComplexLambdaInPlace {
         public Set<User> findEditors() {
             return users.stream()
                     .filter(u -> u.getRoles().stream()
@@ -37,8 +34,7 @@ public class AvoidComplexLambdas {
     }
 
     @Good
-    public class ComplexityExtractedToMethodReference {
-
+    class ComplexityExtractedToMethodReference {
         public Set<User> checkPermission(Permission permission) {
             //@todo<lumii> add example with method reference
             return users.stream()

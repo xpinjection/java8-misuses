@@ -1,6 +1,5 @@
 package com.xpinjection.java8.misused.stream;
 
-import com.xpinjection.java8.misused.Annotations;
 import com.xpinjection.java8.misused.Annotations.Good;
 import com.xpinjection.java8.misused.Annotations.Ugly;
 
@@ -11,12 +10,10 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.toSet;
 
-//TODO: Need to merge with "MultiLevelForEach"
+//@todo<lumii> Need to merge with "MultiLevelForEach"
 public class NestedForEach {
-
     @Ugly
     class NestedForEachWithExternalCollection {
-
         public Set<String> retrievePromoRuleNames(List<BusinessTransaction> transactions) {
             Set<String> ruleNamesWithPromo = new HashSet<>();
             transactions.forEach(trnx -> trnx.getRules().stream()
@@ -28,7 +25,6 @@ public class NestedForEach {
 
     @Good
     class StreamOperationsChain {
-
         public Set<String> retrievePromoRuleNames(List<BusinessTransaction> transactions) {
             return transactions.stream()
                     .flatMap(t -> t.getRules().stream())

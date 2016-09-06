@@ -8,16 +8,11 @@ import com.xpinjection.java8.misused.UserDto;
 import java.util.List;
 import java.util.function.Function;
 
-import static java.util.Collections.EMPTY_LIST;
 import static java.util.stream.Collectors.toList;
 
 public class AvoidLongLambdas {
-
-    List<User> users = EMPTY_LIST;
-
     @Ugly
     class LongLambdaInPlace {
-
         public List<UserDto> convertToDto(List<User> users){
             return users.stream()
                     .map(user -> {
@@ -33,9 +28,8 @@ public class AvoidLongLambdas {
 
     @Good
     class MethodReferenceInsteadOfLambda {
-
         //Particular converter could be implemented as a separate class or as a lambda function
-        Function<User, UserDto> converter = this::convertToDto;
+        private final Function<User, UserDto> converter = this::convertToDto;
 
         public List<UserDto> convertToDto(List<User> users){
             return users.stream()

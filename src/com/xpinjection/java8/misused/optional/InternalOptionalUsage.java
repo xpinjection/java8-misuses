@@ -10,15 +10,14 @@
 package com.xpinjection.java8.misused.optional;
 
 import com.xpinjection.java8.misused.Annotations.Good;
+import com.xpinjection.java8.misused.Annotations.Ugly;
 import com.xpinjection.java8.misused.User;
 
 import java.util.Optional;
 
 public class InternalOptionalUsage {
-
-    @Good
-    class OldStyle {
-
+    @Ugly
+    class UnclearOptionalDependencyWithCheckForNull {
         private Printer printer;
 
         public void process(User user) {
@@ -34,8 +33,7 @@ public class InternalOptionalUsage {
     }
 
     @Good
-    class ValidInternalOptionalUsage {
-
+    class ValidInternalOptionalDependency {
         private Optional<Printer> printer = Optional.empty();
 
         public void process(User user) {

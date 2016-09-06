@@ -9,6 +9,8 @@
 // ============================================================================
 package com.xpinjection.java8.misused.stream;
 
+import com.xpinjection.java8.misused.Annotations.Good;
+import com.xpinjection.java8.misused.Annotations.Ugly;
 import com.xpinjection.java8.misused.Permission;
 import com.xpinjection.java8.misused.User;
 
@@ -16,15 +18,14 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-//TODO: Need to merge with "NestedForEach" example
 public class MultiLevelForEach {
-
     private final Set<User> users = new HashSet<>();
 
-    public class Misuse {
+    @Ugly
+    class UseOldSchoolIterationsWithLeveledForEach {
         public boolean checkPermission(Permission permission) {
             AtomicBoolean found = new AtomicBoolean();
-            //@todo<lumii> bad sample, need more realistic
+            //@todo<lumii> bad sample, need more realistic or merge with "NestedForEach"
             users.forEach(
                     u -> u.getRoles().forEach(
                             r -> r.getPermissions().forEach(
@@ -40,7 +41,8 @@ public class MultiLevelForEach {
         }
     }
 
-    public class Correct {
+    @Good
+    class UseFlatMapForSubCollections {
         public boolean checkPermission(Permission permission) {
             return users.stream().flatMap(u -> u.getRoles().stream())
                     .flatMap(r -> r.getPermissions().stream())

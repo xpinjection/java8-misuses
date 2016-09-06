@@ -9,7 +9,6 @@
 // ============================================================================
 package com.xpinjection.java8.misused.stream;
 
-import com.xpinjection.java8.misused.Annotations;
 import com.xpinjection.java8.misused.Annotations.Good;
 import com.xpinjection.java8.misused.Annotations.Ugly;
 import com.xpinjection.java8.misused.Permission;
@@ -24,13 +23,10 @@ import static java.util.stream.Collectors.*;
 
 //TODO: Think whether we can simplify it in any way
 public class ExternalCollectionForGrouping {
-
     private final Set<User> users = new HashSet<>();
 
     @Ugly
-    //TODO: Come up with proper name
-    public class Misuse {
-
+    class ExternalStateIsUsedForStreamOperations {
         public Map<String, Set<User>> findEditors() {
             Map<String, Set<User>> editors = new HashMap<>();
             //@todo<lumii> is it better to use Multiset and avoid code in lambda
@@ -50,9 +46,7 @@ public class ExternalCollectionForGrouping {
     }
 
     @Good
-    //TODO: Come up with proper name
-    public class Correct {
-
+    class TuplesAreUsedWhenStateIsNeededOnLaterPhase {
         public Map<String, Set<User>> findEditors() {
             return users.stream()
                     .flatMap(u -> u.getRoles().stream()

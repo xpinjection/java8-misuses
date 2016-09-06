@@ -10,10 +10,8 @@ import java.util.Objects;
 import static java.util.Optional.ofNullable;
 
 public class SameOldCodeStyleWithNewConstructs {
-
     @Ugly
     class NoMoreThanSameOldLoopWithIf {
-
         public void registerUsers(Collection<User> users) {
             users.stream().forEach(user ->
                     ofNullable(user).ifPresent(u -> {
@@ -24,8 +22,7 @@ public class SameOldCodeStyleWithNewConstructs {
     }
 
     @Good
-    class NewStreamStyle {
-
+    class NewStreamStyleWithMethodReference {
         public void registerUsers(Collection<User> users) {
             users.stream()
                     .filter(Objects::nonNull)

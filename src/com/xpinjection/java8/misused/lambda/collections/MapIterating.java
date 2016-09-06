@@ -1,4 +1,4 @@
-package com.xpinjection.java8.misused.lambda.library_methods;
+package com.xpinjection.java8.misused.lambda.collections;
 
 import com.xpinjection.java8.misused.User;
 import com.xpinjection.java8.misused.Annotations.Good;
@@ -7,11 +7,9 @@ import com.xpinjection.java8.misused.Annotations.Ugly;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapForEach {
-
+public class MapIterating {
     @Ugly
     class UsingOldGoodEntrySet{
-
         public Map<String, String> getUserNames(Map<String, User> users){
             Map<String, String> userNames = new HashMap<>();
             users.entrySet().forEach(u -> userNames.put(u.getKey(), u.getValue().getName()));
@@ -21,7 +19,6 @@ public class MapForEach {
 
     @Good
     class UsingMapForEach{
-
         public Map<String, String> getUserNames(Map<String, User> users){
             Map<String, String> userNames = new HashMap<>();
             users.forEach((key, value) -> userNames.put(key, value.getName()));

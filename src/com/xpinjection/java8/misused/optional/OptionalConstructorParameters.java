@@ -18,10 +18,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class OptionalConstructorParameters {
-
     @Ugly
     class OptionalLeaksOutsideClass {
-
         public List<Email> create() {
             Email noAttachment = new Email("First!", "No attachment", Optional.<Attachment>empty());
             Attachment attachment = new Attachment("/mnt/files/image.png", 370);
@@ -29,7 +27,7 @@ public class OptionalConstructorParameters {
             return Arrays.asList(noAttachment, withAttachment);
         }
 
-        public class Email implements Serializable {
+        class Email implements Serializable {
             private final String subject;
             private final String body;
             private final Optional<Attachment> attachment;
@@ -55,8 +53,7 @@ public class OptionalConstructorParameters {
     }
 
     @Good
-    class OverloadedConstructorsMuchBetterInThisCase {
-
+    class OverloadedConstructors {
         public List<Email> create() {
             Email noAttachment = new Email("First!", "No attachment");
             Attachment attachment = new Attachment("/mnt/files/image.png", 370);
@@ -64,7 +61,7 @@ public class OptionalConstructorParameters {
             return Arrays.asList(noAttachment, withAttachment);
         }
 
-        public class Email implements Serializable {
+        class Email implements Serializable {
             private final String subject;
             private final String body;
             private final Attachment attachment;

@@ -9,7 +9,6 @@
 // ============================================================================
 package com.xpinjection.java8.misused.stream;
 
-import com.xpinjection.java8.misused.Annotations;
 import com.xpinjection.java8.misused.Annotations.Good;
 import com.xpinjection.java8.misused.Annotations.Ugly;
 import com.xpinjection.java8.misused.Permission;
@@ -20,15 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ImparativeCodeMix {
-
+public class ImperativeCodeMix {
     private static final String ADMIN_ROLE = "admin";
 
     private final List<User> users = new ArrayList<>();
 
     @Ugly
-    public class TooVerboseMixOfStreamOperationsAndImparativeCode {
-
+    class TooVerboseMixOfStreamOperationsAndImperativeCode {
         public boolean hasAdmin() {
             return users.stream()
                     .map(u -> {
@@ -44,8 +41,7 @@ public class ImparativeCodeMix {
     }
 
     @Good
-    public class NiceAndCleanStreamOperationsChain {
-
+    class NiceAndCleanStreamOperationsChain {
         public boolean hasAdmin(Permission permission) {
             return users.stream()
                     .map(Objects::requireNonNull)

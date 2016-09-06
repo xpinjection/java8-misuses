@@ -9,19 +9,15 @@
 // ============================================================================
 package com.xpinjection.java8.misused.optional;
 
-import com.xpinjection.java8.misused.Annotations;
 import com.xpinjection.java8.misused.Annotations.Good;
 import com.xpinjection.java8.misused.Annotations.Ugly;
 import com.xpinjection.java8.misused.User;
 
 import java.util.Optional;
 
-
 public class StrictCheckOfValuePresence {
-
     @Ugly
-    class TooVerbose {
-
+    class ManualCheckForPresenceToThrowException {
         public String getUserName(Long userId) {
             Optional<User> user = findById(userId);
             if (user.isPresent()) {
@@ -32,8 +28,7 @@ public class StrictCheckOfValuePresence {
     }
 
     @Good
-    class NiceAndClean {
-
+    class OrElseThrowUsage {
         public String getUserName(Long userId) {
             return findById(userId)
                     .orElseThrow(() -> new IllegalStateException("User not found"))
