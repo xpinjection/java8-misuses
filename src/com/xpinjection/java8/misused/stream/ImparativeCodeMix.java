@@ -1,5 +1,5 @@
 // ============================================================================
-//  File          : CommonChecksAsMethodReferences
+//  File          : ImparativeCodeMix
 //  Created       : 29.08.2016   
 //  Description   :
 //  Modifications :
@@ -7,26 +7,28 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.stream;
+package com.xpinjection.java8.misused.stream;
 
-import com.xpinjection.misuses.Permission;
-import com.xpinjection.misuses.Role;
-import com.xpinjection.misuses.User;
+import com.xpinjection.java8.misused.Annotations;
+import com.xpinjection.java8.misused.Annotations.Good;
+import com.xpinjection.java8.misused.Annotations.Ugly;
+import com.xpinjection.java8.misused.Permission;
+import com.xpinjection.java8.misused.Role;
+import com.xpinjection.java8.misused.User;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
-public class CommonChecksAsMethodReferences {
+public class ImparativeCodeMix {
+
     private static final String ADMIN_ROLE = "admin";
 
     private final List<User> users = new ArrayList<>();
 
-    public class Misuse {
+    @Ugly
+    public class TooVerboseMixOfStreamOperationsAndImparativeCode {
+
         public boolean hasAdmin() {
             return users.stream()
                     .map(u -> {
@@ -41,7 +43,9 @@ public class CommonChecksAsMethodReferences {
         }
     }
 
-    public class Correct {
+    @Good
+    public class NiceAndCleanStreamOperationsChain {
+
         public boolean hasAdmin(Permission permission) {
             return users.stream()
                     .map(Objects::requireNonNull)

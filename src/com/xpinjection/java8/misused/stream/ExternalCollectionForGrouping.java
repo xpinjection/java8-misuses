@@ -7,10 +7,13 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.stream;
+package com.xpinjection.java8.misused.stream;
 
-import com.xpinjection.misuses.Permission;
-import com.xpinjection.misuses.User;
+import com.xpinjection.java8.misused.Annotations;
+import com.xpinjection.java8.misused.Annotations.Good;
+import com.xpinjection.java8.misused.Annotations.Ugly;
+import com.xpinjection.java8.misused.Permission;
+import com.xpinjection.java8.misused.User;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,14 +22,15 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.*;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
+//TODO: Think whether we can simplify it in any way
 public class ExternalCollectionForGrouping {
+
     private final Set<User> users = new HashSet<>();
 
+    @Ugly
+    //TODO: Come up with proper name
     public class Misuse {
+
         public Map<String, Set<User>> findEditors() {
             Map<String, Set<User>> editors = new HashMap<>();
             //@todo<lumii> is it better to use Multiset and avoid code in lambda
@@ -45,7 +49,10 @@ public class ExternalCollectionForGrouping {
         }
     }
 
+    @Good
+    //TODO: Come up with proper name
     public class Correct {
+
         public Map<String, Set<User>> findEditors() {
             return users.stream()
                     .flatMap(u -> u.getRoles().stream()
@@ -74,5 +81,4 @@ public class ExternalCollectionForGrouping {
             return value;
         }
     }
-
 }

@@ -7,15 +7,11 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses;
+package com.xpinjection.java8.misused;
 
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
 public class User {
     private Long id;
     private String name;

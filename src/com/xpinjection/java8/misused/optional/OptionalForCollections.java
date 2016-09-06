@@ -7,22 +7,23 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.optional;
+package com.xpinjection.java8.misused.optional;
 
-import com.xpinjection.misuses.User;
+import com.xpinjection.java8.misused.Annotations.Good;
+import com.xpinjection.java8.misused.Annotations.Ugly;
+import com.xpinjection.java8.misused.User;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
 public class OptionalForCollections {
+
     private static final String ADMIN_ROLE = "admin";
 
-    public class Misuse {
+    @Ugly
+    class TooVerbose {
+
         public User findAnyAdmin() {
             Optional<List<User>> users = findUsersByRole(ADMIN_ROLE);
             if (users.isPresent() && !users.get().isEmpty()) {
@@ -37,9 +38,12 @@ public class OptionalForCollections {
         }
     }
 
-    public class Correct {
+    @Good
+    class NiceAndClean {
+
         public User findAnyAdmin() {
-            return findUsersByRole(ADMIN_ROLE).stream().findAny()
+            return findUsersByRole(ADMIN_ROLE).stream()
+                    .findAny()
                     .orElseThrow(() -> new IllegalStateException("No admins found"));
         }
 

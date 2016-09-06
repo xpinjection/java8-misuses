@@ -7,12 +7,8 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses;
+package com.xpinjection.java8.misused;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
 public enum Permission {
     ADD, EDIT, SEARCH, DELETE
 }

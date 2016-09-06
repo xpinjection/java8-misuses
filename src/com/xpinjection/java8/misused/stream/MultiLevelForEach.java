@@ -7,20 +7,18 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.stream;
+package com.xpinjection.java8.misused.stream;
 
-import com.xpinjection.misuses.Permission;
-import com.xpinjection.misuses.User;
+import com.xpinjection.java8.misused.Permission;
+import com.xpinjection.java8.misused.User;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
+//TODO: Need to merge with "NestedForEach" example
 public class MultiLevelForEach {
+
     private final Set<User> users = new HashSet<>();
 
     public class Misuse {

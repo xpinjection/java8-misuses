@@ -7,9 +7,9 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.stream;
+package com.xpinjection.java8.misused.stream;
 
-import com.xpinjection.misuses.User;
+import com.xpinjection.java8.misused.User;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -18,11 +18,9 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.toList;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
+//TODO: I would delete this example as other examples () cover this case already
 public class ManualCollection {
+
     private final Set<User> users = new HashSet<>();
 
     public class Misuse {

@@ -1,5 +1,5 @@
 // ============================================================================
-//  File          : NullableDependency
+//  File          : InternalOptionalUsage
 //  Created       : 29.08.2016   
 //  Description   :
 //  Modifications :
@@ -7,18 +7,18 @@
 // ============================================================================
 //  Copyright(c) 2016 XP Injection, Ukraine
 // ============================================================================
-package com.xpinjection.misuses.optional;
+package com.xpinjection.java8.misused.optional;
 
-import com.xpinjection.misuses.User;
+import com.xpinjection.java8.misused.Annotations.Good;
+import com.xpinjection.java8.misused.User;
 
 import java.util.Optional;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
-public class NullableDependency {
-    public class Misuse {
+public class InternalOptionalUsage {
+
+    @Good
+    class OldStyle {
+
         private Printer printer;
 
         public void process(User user) {
@@ -33,7 +33,9 @@ public class NullableDependency {
         }
     }
 
-    public class Correct {
+    @Good
+    class ValidInternalOptionalUsage {
+
         private Optional<Printer> printer = Optional.empty();
 
         public void process(User user) {
@@ -46,7 +48,7 @@ public class NullableDependency {
         }
     }
 
-    public interface Printer {
+    interface Printer {
         void print(User user);
     }
 }
