@@ -77,20 +77,17 @@ public class HundredAndOneApproach {
         public Optional<Car> getCar() {
             return empty(); //stub
         }
-        //some other code...
     }
 
     class Car {
         public Optional<Insurance> getInsurance() {
             return empty(); //stub
         }
-        //some other code...
     }
 
     class Insurance {
         public String getName() {
             return ""; //stub
         }
-        //some other code...
     }
 }

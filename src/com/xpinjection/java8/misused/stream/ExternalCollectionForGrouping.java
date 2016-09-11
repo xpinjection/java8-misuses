@@ -21,7 +21,6 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.*;
 
-//TODO: Think whether we can simplify it in any way
 public class ExternalCollectionForGrouping {
     private final Set<User> users = new HashSet<>();
 
@@ -29,13 +28,13 @@ public class ExternalCollectionForGrouping {
     class ExternalStateIsUsedForStreamOperations {
         public Map<String, Set<User>> findEditors() {
             Map<String, Set<User>> editors = new HashMap<>();
-            //@todo<lumii> is it better to use Multiset and avoid code in lambda
             users.forEach(u -> u.getRoles().stream()
                     .filter(r -> r.getPermissions().contains(Permission.EDIT))
                     .forEach(r -> {
+                        //is it better to use Multiset and avoid this complex code
                         Set<User> usersInRole = editors.get(r.getName());
                         if (usersInRole == null) {
-                            usersInRole = new HashSet<User>();
+                            usersInRole = new HashSet<>();
                             editors.put(r.getName(), usersInRole);
                         }
                         usersInRole.add(u);

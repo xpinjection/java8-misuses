@@ -10,13 +10,12 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.toSet;
 
-//@todo<lumii> Need to merge with "MultiLevelForEach"
 public class NestedForEach {
     @Ugly
     class NestedForEachWithExternalCollection {
         public Set<String> retrievePromoRuleNames(List<BusinessTransaction> transactions) {
             Set<String> ruleNamesWithPromo = new HashSet<>();
-            transactions.forEach(trnx -> trnx.getRules().stream()
+            transactions.forEach(transaction -> transaction.getRules().stream()
                     .filter(BusinessRule::isPromotion)
                     .forEach(rule -> ruleNamesWithPromo.add(rule.getRuleName())));
             return ruleNamesWithPromo;
@@ -38,7 +37,6 @@ public class NestedForEach {
         List<BusinessRule> getRules() {
             return new ArrayList<>(); //stub
         }
-        //some other code...
     }
 
     class BusinessRule {
@@ -49,6 +47,5 @@ public class NestedForEach {
         boolean isPromotion() {
             return false; //stub
         }
-        //some other code...
     }
 }

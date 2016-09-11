@@ -15,7 +15,7 @@ public class SameOldCodeStyleWithNewConstructs {
         public void registerUsers(Collection<User> users) {
             users.stream().forEach(user ->
                     ofNullable(user).ifPresent(u -> {
-                        //Register User
+                        //register user
                     })
             );
         }
@@ -30,7 +30,7 @@ public class SameOldCodeStyleWithNewConstructs {
         }
 
         private void registerUser(User user){
-            //Register User
+            //register user
         }
     }
 }

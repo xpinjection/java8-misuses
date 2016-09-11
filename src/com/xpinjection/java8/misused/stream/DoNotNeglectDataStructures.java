@@ -33,10 +33,8 @@ public class DoNotNeglectDataStructures {
         public Status getStatus() {
             return null; //stub
         }
-        //some other code...
     }
 
     class Status {
-        //some other code...
     }
 }

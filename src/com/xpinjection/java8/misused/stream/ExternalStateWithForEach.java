@@ -18,23 +18,20 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class MultiLevelForEach {
+public class ExternalStateWithForEach {
     private final Set<User> users = new HashSet<>();
 
     @Ugly
-    class UseOldSchoolIterationsWithLeveledForEach {
+    class UseOldSchoolIterationsWithForEachAndExternalBoolean {
         public boolean checkPermission(Permission permission) {
             AtomicBoolean found = new AtomicBoolean();
-            //@todo<lumii> bad sample, need more realistic or merge with "NestedForEach"
             users.forEach(
                     u -> u.getRoles().forEach(
-                            r -> r.getPermissions().forEach(
-                                    p -> {
-                                        if (p == permission) {
-                                            found.set(true);
-                                        }
-                                    }
-                            )
+                            r -> {
+                                if (r.getPermissions().contains(permission)) {
+                                    found.set(true);
+                                }
+                            }
                     )
             );
             return found.get();
@@ -45,8 +42,8 @@ public class MultiLevelForEach {
     class UseFlatMapForSubCollections {
         public boolean checkPermission(Permission permission) {
             return users.stream().flatMap(u -> u.getRoles().stream())
-                    .flatMap(r -> r.getPermissions().stream())
-                    .anyMatch(permission::equals);
+                    .filter(r -> r.getPermissions().contains(permission))
+                    .findAny().isPresent();
         }
     }
 }

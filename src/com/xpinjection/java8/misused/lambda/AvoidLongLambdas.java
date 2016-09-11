@@ -19,7 +19,7 @@ public class AvoidLongLambdas {
                         UserDto dto = new UserDto();
                         dto.setId(user.getId());
                         dto.setName(user.getName());
-                        //It happens to be much more fields and much more logic in terms of remapping these fields
+                        //it happens to be much more fields and much more logic in terms of remapping these fields
                         return dto;
                     })
                     .collect(toList());
@@ -28,7 +28,7 @@ public class AvoidLongLambdas {
 
     @Good
     class MethodReferenceInsteadOfLambda {
-        //Particular converter could be implemented as a separate class or as a lambda function
+        //particular converter could be implemented as a separate class or as a lambda function
         private final Function<User, UserDto> converter = this::convertToDto;
 
         public List<UserDto> convertToDto(List<User> users){

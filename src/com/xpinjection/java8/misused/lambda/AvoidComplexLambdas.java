@@ -36,8 +36,8 @@ public class AvoidComplexLambdas {
     @Good
     class ComplexityExtractedToMethodReference {
         public Set<User> checkPermission(Permission permission) {
-            //@todo<lumii> add example with method reference
             return users.stream()
+                    //.filter(this::hasEditPermission)
                     .filter(hasPermission(Permission.EDIT))
                     .collect(toSet());
         }
@@ -45,6 +45,10 @@ public class AvoidComplexLambdas {
         private Predicate<User> hasPermission(Permission permission) {
             return u -> u.getRoles().stream()
                     .anyMatch(r -> r.getPermissions().contains(permission));
+        }
+
+        private boolean hasEditPermission(User user) {
+            return hasPermission(Permission.EDIT).test(user);
         }
     }
 }
