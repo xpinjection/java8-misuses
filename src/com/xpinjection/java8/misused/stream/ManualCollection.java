@@ -20,6 +20,7 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.toList;
 
+//TODO: I would delete this example as other examples (NestedForEach & ExternalCollectionForGrouping) cover this case already
 public class ManualCollection {
     private final Set<User> users = new HashSet<>();
 

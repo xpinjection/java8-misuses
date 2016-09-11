@@ -52,7 +52,7 @@ public class HundredAndOneApproach {
     }
 
     @Ugly
-    class UsingMapWithEmptyObjectToSimplifyCode {
+    class UsingMapWithOrElseEmptyObjectToFixUncheckedGet {
         public String getPersonCarInsuranceName(Person person) {
             return ofNullable(person)
                     .map(Person::getCar)
