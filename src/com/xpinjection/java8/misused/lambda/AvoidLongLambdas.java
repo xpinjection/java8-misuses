@@ -28,12 +28,12 @@ public class AvoidLongLambdas {
 
     @Good
     class MethodReferenceInsteadOfLambda {
-        //particular converter could be implemented as a separate class or as a lambda function
-        private final Function<User, UserDto> converter = this::convertToDto;
+        //particular toDto could be implemented as a separate class or as a lambda function
+        private final Function<User, UserDto> toDto = this::convertToDto;
 
         public List<UserDto> convertToDto(List<User> users){
             return users.stream()
-                    .map(converter)
+                    .map(toDto)
                     .collect(toList());
         }
 

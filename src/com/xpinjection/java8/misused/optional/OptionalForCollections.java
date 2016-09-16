@@ -40,7 +40,7 @@ public class OptionalForCollections {
     class NiceAndClean {
         public User findAnyAdmin() {
             return findUsersByRole(ADMIN_ROLE).stream()
-                    .findAny()
+                    .findFirst()
                     .orElseThrow(() -> new IllegalStateException("No admins found"));
         }
 

@@ -20,10 +20,6 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toMap;
 
-/**
- * @author Alimenkou Mikalai
- * @version 1.0
- */
 public class WantToUseStreamsEverywhere {
     @Ugly
     class UseStreamToBuildMap {

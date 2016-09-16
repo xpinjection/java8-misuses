@@ -12,7 +12,8 @@ public class MapIterating {
     class UsingOldGoodEntrySet{
         public Map<String, String> getUserNames(Map<String, User> users){
             Map<String, String> userNames = new HashMap<>();
-            users.entrySet().forEach(u -> userNames.put(u.getKey(), u.getValue().getName()));
+            users.entrySet().forEach(user ->
+                    userNames.put(user.getKey(), user.getValue().getName()));
             return userNames;
         }
     }
