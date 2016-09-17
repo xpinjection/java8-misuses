@@ -41,7 +41,8 @@ public class ExternalStateWithForEach {
     @Good
     class UseFlatMapForSubCollections {
         public boolean checkPermission(Permission permission) {
-            return users.stream().flatMap(u -> u.getRoles().stream())
+            return users.stream()
+                    .flatMap(u -> u.getRoles().stream())
                     .filter(r -> r.getPermissions().contains(permission))
                     .findAny().isPresent();
         }

@@ -21,7 +21,7 @@ public class PreferSpecializedStreams {
 
     @Bad
     class GeneralStreamUsage {
-        public int getAverageAge() {
+        public int getTotalAge() {
             return users.stream()
                     .map(User::getAge)
                     .reduce(0, Integer::sum);
@@ -30,7 +30,7 @@ public class PreferSpecializedStreams {
 
     @Good
     class SpecializedStreamUsage {
-        public int getAverageAge() {
+        public int getTotalAge() {
             return users.stream()
                     .mapToInt(User::getAge)
                     .sum();
