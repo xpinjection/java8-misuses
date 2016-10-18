@@ -43,8 +43,7 @@ public class ExternalStateWithForEach {
         public boolean checkPermission(Permission permission) {
             return users.stream()
                     .flatMap(u -> u.getRoles().stream())
-                    .filter(r -> r.getPermissions().contains(permission))
-                    .findAny().isPresent();
+                    .anyMatch(r -> r.getPermissions().contains(permission));
         }
     }
 }
