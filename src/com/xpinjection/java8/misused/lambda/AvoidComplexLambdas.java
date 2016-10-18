@@ -12,6 +12,7 @@ package com.xpinjection.java8.misused.lambda;
 import com.xpinjection.java8.misused.Annotations.Good;
 import com.xpinjection.java8.misused.Annotations.Ugly;
 import com.xpinjection.java8.misused.Permission;
+import com.xpinjection.java8.misused.Role;
 import com.xpinjection.java8.misused.User;
 
 import java.util.HashSet;
@@ -43,8 +44,9 @@ public class AvoidComplexLambdas {
         }
 
         private Predicate<User> hasPermission(Permission permission) {
-            return u -> u.getRoles().stream()
-                    .anyMatch(r -> r.getPermissions().contains(permission));
+            return user -> user.getRoles().stream()
+                    .map(Role::getPermissions)
+                    .anyMatch(permissions -> permissions.contains(permission));
         }
 
         private boolean hasEditPermission(User user) {
