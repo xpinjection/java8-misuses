@@ -6,12 +6,13 @@ import com.xpinjection.java8.misused.User;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toMap;
 
 public class MapIterating {
     @Ugly
-    class UsingOldGoodEntrySet{
-        public Map<String, String> getUserNames(Map<String, User> users){
+    class UsingOldGoodEntrySet {
+        public Map<String, String> getUserNames(Map<String, User> users) {
             Map<String, String> userNames = new HashMap<>();
             users.entrySet().forEach(user ->
                     userNames.put(user.getKey(), user.getValue().getName()));
@@ -20,8 +21,8 @@ public class MapIterating {
     }
 
     @Good
-    class UsingMapForEach{
-        public Map<String, String> getUserNames(Map<String, User> users){
+    class UsingMapForEach {
+        public Map<String, String> getUserNames(Map<String, User> users) {
             Map<String, String> userNames = new HashMap<>();
             users.forEach((key, value) -> userNames.put(key, value.getName()));
             return userNames;
@@ -32,10 +33,8 @@ public class MapIterating {
     class UsingMapTransform {
         public Map<String, String> getUserNames(Map<String, User> users) {
             return users.entrySet().stream()
-                    .collect(
-                            Collectors.toMap(
-                                    Map.Entry::getKey,
-                                    entry -> entry.getValue().getName()));
+                    .collect(toMap(Map.Entry::getKey,
+                            entry -> entry.getValue().getName()));
         }
     }
 }
