@@ -28,7 +28,7 @@ public class WantToUseStreamsEverywhere {
                     Stream.of(
                             new AbstractMap.SimpleEntry<>("hibernate.show_sql", "true"),
                             new AbstractMap.SimpleEntry<>("hibernate.format_sql", "true")
-                    ).collect(toMap(AbstractMap.SimpleEntry::getKey, AbstractMap.SimpleEntry::getValue))
+                    ).collect(toMap(Map.Entry::getKey, Map.Entry::getValue))
             );
         }
     }
