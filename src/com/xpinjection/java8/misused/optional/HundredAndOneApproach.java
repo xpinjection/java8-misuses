@@ -56,8 +56,8 @@ public class HundredAndOneApproach {
         public String getPersonCarInsuranceName(Person person) {
             return ofNullable(person)
                     .map(Person::getCar)
-                    .map(car -> car.orElse(new Car()).getInsurance())
-                    .map(insurance -> insurance.orElse(new Insurance()).getName())
+                    .map(car -> car.orElseGet(Car::new).getInsurance())
+                    .map(insurance -> insurance.orElseGet(Insurance::new).getName())
                     .orElse("Unknown");
         }
     }
