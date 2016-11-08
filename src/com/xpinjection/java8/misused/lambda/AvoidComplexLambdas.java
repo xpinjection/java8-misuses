@@ -1,12 +1,3 @@
-// ============================================================================
-//  File          : AvoidComplexLambdas
-//  Created       : 29.08.2016   
-//  Description   :
-//  Modifications :
-//
-// ============================================================================
-//  Copyright(c) 2016 XP Injection, Ukraine
-// ============================================================================
 package com.xpinjection.java8.misused.lambda;
 
 import com.xpinjection.java8.misused.Annotations.Good;

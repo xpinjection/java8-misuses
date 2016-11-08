@@ -1,12 +1,3 @@
-// ============================================================================
-//  File          : PreferSpecializedStreams
-//  Created       : 31.08.2016   
-//  Description   :
-//  Modifications :
-//
-// ============================================================================
-//  Copyright(c) 2016 XP Injection, Ukraine
-// ============================================================================
 package com.xpinjection.java8.misused.stream;
 
 import com.xpinjection.java8.misused.Annotations.Bad;
