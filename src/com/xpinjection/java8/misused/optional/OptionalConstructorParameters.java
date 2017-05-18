@@ -12,7 +12,7 @@ public class OptionalConstructorParameters {
     @Ugly
     class OptionalLeaksOutsideClass {
         public List<Email> create() {
-            Email noAttachment = new Email("First!", "No attachment", Optional.<Attachment>empty());
+            Email noAttachment = new Email("First!", "No attachment", Optional.empty());
             Attachment attachment = new Attachment("/mnt/files/image.png", 370);
             Email withAttachment = new Email("Second!", "With attachment", Optional.of(attachment));
             return Arrays.asList(noAttachment, withAttachment);
