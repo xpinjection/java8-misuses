@@ -19,7 +19,7 @@ public class Role {
         return permissions;
     }
 
-    public void setPermissions(EnumSet<Permission> permissions) {
+    public void setPermissions(Set<Permission> permissions) {
         this.permissions = permissions;
     }
 
