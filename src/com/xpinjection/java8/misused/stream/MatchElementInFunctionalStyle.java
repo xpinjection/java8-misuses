@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class ExternalStateWithForEach {
+public class MatchElementInFunctionalStyle {
     private final Set<User> users = new HashSet<>();
 
     @Ugly
@@ -26,6 +26,26 @@ public class ExternalStateWithForEach {
                     )
             );
             return found.get();
+        }
+    }
+
+    @Ugly
+    class TryToUseFunctionalStyleWithStreamFilter {
+        public boolean checkPermission(Permission permission) {
+            return users.stream().filter(
+                    u -> u.getRoles().stream()
+                            .filter(r -> r.getPermissions().contains(permission))
+                            .count() > 0)
+                    .findFirst().isPresent();
+        }
+    }
+
+    @Ugly
+    class TryToUseStreamMatching {
+        public boolean checkPermission(Permission permission) {
+            return users.stream()
+                    .anyMatch(u -> u.getRoles().stream()
+                            .anyMatch(r -> r.getPermissions().contains(permission)));
         }
     }
 
