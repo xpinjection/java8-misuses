@@ -16,6 +16,13 @@ public class StrictCheckOfValuePresence {
             }
             throw new IllegalStateException("User not found");
         }
+
+        public void deleteUser(Long userId) {
+            Optional<User> user = findById(userId);
+            if (user.isPresent()) {
+                delete(user.get());
+            }
+        }
     }
 
     @Good
@@ -25,10 +32,19 @@ public class StrictCheckOfValuePresence {
                     .orElseThrow(() -> new IllegalStateException("User not found"))
                     .getName();
         }
+
+        public void deleteUser(Long userId) {
+            findById(userId)
+                    .ifPresent(StrictCheckOfValuePresence.this::delete);
+        }
     }
 
     private Optional<User> findById(Long userId) {
         //search in DB
         return Optional.of(new User(5L, "Mikalai"));
+    }
+
+    private void delete(User user) {
+        //delete from DB
     }
 }
