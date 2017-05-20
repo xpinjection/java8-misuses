@@ -23,6 +23,10 @@ public class StrictCheckOfValuePresence {
                 delete(user.get());
             }
         }
+
+        private void delete(User user) {
+            //delete from DB
+        }
     }
 
     @Good
@@ -34,17 +38,16 @@ public class StrictCheckOfValuePresence {
         }
 
         public void deleteUser(Long userId) {
-            findById(userId)
-                    .ifPresent(StrictCheckOfValuePresence.this::delete);
+            findById(userId).ifPresent(this::delete);
+        }
+
+        private void delete(User user) {
+            //delete from DB
         }
     }
 
     private Optional<User> findById(Long userId) {
         //search in DB
         return Optional.of(new User(5L, "Mikalai"));
-    }
-
-    private void delete(User user) {
-        //delete from DB
     }
 }

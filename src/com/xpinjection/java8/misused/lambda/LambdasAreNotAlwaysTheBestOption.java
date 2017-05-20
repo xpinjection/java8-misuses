@@ -5,7 +5,7 @@ import com.xpinjection.java8.misused.Annotations.Ugly;
 
 import java.util.Optional;
 
-public class LambdasAreNotTheMostBeautifulOption {
+public class LambdasAreNotAlwaysTheBestOption {
     @Ugly
     class UnneededLambdasUsage {
         public void processAndPrint(String name) {
@@ -15,6 +15,10 @@ public class LambdasAreNotTheMostBeautifulOption {
                     .map(s -> doProcess(s))
                     .ifPresent(s -> System.out.print(s));
         }
+
+        private String doProcess(String name) {
+            return "MR. " + name;
+        }
     }
 
     @Good
@@ -23,12 +27,12 @@ public class LambdasAreNotTheMostBeautifulOption {
             Optional.ofNullable(name)
                     //.filter(StringUtils::isNotEmpty) // replace with appropriate library method ref
                     .map(String::toUpperCase)
-                    .map(LambdasAreNotTheMostBeautifulOption.this::doProcess)
+                    .map(this::doProcess)
                     .ifPresent(System.out::print);
         }
-    }
 
-    private String doProcess(String name) {
-        return "MR. " + name;
+        private String doProcess(String name) {
+            return "MR. " + name;
+        }
     }
 }

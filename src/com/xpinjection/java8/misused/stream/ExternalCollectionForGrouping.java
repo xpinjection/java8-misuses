@@ -48,20 +48,20 @@ public class ExternalCollectionForGrouping {
     }
 
     //any tuple implementation from 3rd party libraries
-    private class Pair<K, V> {
+    class Pair<K, V> {
         private final K key;
         private final V value;
 
-        public Pair(K key, V value) {
+        Pair(K key, V value) {
             this.key = key;
             this.value = value;
         }
 
-        public K getKey() {
+        K getKey() {
             return key;
         }
 
-        public V getValue() {
+        V getValue() {
             return value;
         }
     }

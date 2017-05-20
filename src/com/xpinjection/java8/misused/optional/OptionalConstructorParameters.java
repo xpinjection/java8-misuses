@@ -23,21 +23,21 @@ public class OptionalConstructorParameters {
             private final String body;
             private final Optional<Attachment> attachment;
 
-            public Email(String subject, String body, Optional<Attachment> attachment) {
+            Email(String subject, String body, Optional<Attachment> attachment) {
                 this.subject = subject;
                 this.body = body;
                 this.attachment = attachment;
             }
 
-            public String getSubject() {
+            String getSubject() {
                 return subject;
             }
 
-            public String getBody() {
+            String getBody() {
                 return body;
             }
 
-            public Optional<Attachment> getAttachment() {
+            Optional<Attachment> getAttachment() {
                 return attachment;
             }
         }
@@ -57,29 +57,29 @@ public class OptionalConstructorParameters {
             private final String body;
             private final Attachment attachment;
 
-            public Email(String subject, String body, Attachment attachment) {
+            Email(String subject, String body, Attachment attachment) {
                 this.subject = subject;
                 this.body = body;
                 this.attachment = attachment;
             }
 
-            public Email(String subject, String body) {
+            Email(String subject, String body) {
                 this(subject, body, null);
             }
 
-            public String getSubject() {
+            String getSubject() {
                 return subject;
             }
 
-            public String getBody() {
+            String getBody() {
                 return body;
             }
 
-            public boolean hasAttachment() {
+            boolean hasAttachment() {
                 return attachment != null;
             }
 
-            public Attachment getAttachment() {
+            Attachment getAttachment() {
                 return attachment;
             }
         }
@@ -89,16 +89,16 @@ public class OptionalConstructorParameters {
         private final String path;
         private final int size;
 
-        public Attachment(String path, int size) {
+        Attachment(String path, int size) {
             this.path = path;
             this.size = size;
         }
 
-        public String getPath() {
+        String getPath() {
             return path;
         }
 
-        public int getSize() {
+        int getSize() {
             return size;
         }
     }

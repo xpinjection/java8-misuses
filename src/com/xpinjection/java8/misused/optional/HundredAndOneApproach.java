@@ -74,19 +74,19 @@ public class HundredAndOneApproach {
     }
 
     class Person {
-        public Optional<Car> getCar() {
+        Optional<Car> getCar() {
             return empty(); //stub
         }
     }
 
     class Car {
-        public Optional<Insurance> getInsurance() {
+        Optional<Insurance> getInsurance() {
             return empty(); //stub
         }
     }
 
     class Insurance {
-        public String getName() {
+        String getName() {
             return ""; //stub
         }
     }

@@ -28,7 +28,7 @@ public class OptionalElvis {
 
     @Good
     class UsingOrElse {
-        public String getUserName(User user) {
+        String getUserName(User user) {
             return ofNullable(user)
                     .map(User::getName)
                     .orElse("default");

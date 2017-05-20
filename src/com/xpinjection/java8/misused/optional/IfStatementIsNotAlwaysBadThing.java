@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 public class IfStatementIsNotAlwaysBadThing {
     @Ugly
     class CombineSomeOptionalsInCleverWay {
-        Optional<Integer> sum(Optional<Integer> first, Optional<Integer> second) {
+        public Optional<Integer> sum(Optional<Integer> first, Optional<Integer> second) {
             return Stream.of(first, second)
                     .filter(Optional::isPresent)
                     .map(Optional::get)
@@ -19,7 +19,7 @@ public class IfStatementIsNotAlwaysBadThing {
 
     @Ugly
     class PlayMapGameInEvenMoreCleverWay {
-        Optional<Integer> sum(Optional<Integer> first, Optional<Integer> second) {
+        public Optional<Integer> sum(Optional<Integer> first, Optional<Integer> second) {
             return first.map(b -> second.map(a -> b + a).orElse(b))
                     .map(Optional::of)
                     .orElse(second);
@@ -28,7 +28,7 @@ public class IfStatementIsNotAlwaysBadThing {
 
     @Good
     class OldSchoolButTotallyClearCode {
-        Optional<Integer> sum(Optional<Integer> first, Optional<Integer> second) {
+        public Optional<Integer> sum(Optional<Integer> first, Optional<Integer> second) {
             if (!first.isPresent() && !second.isPresent()) {
                 return Optional.empty();
             }

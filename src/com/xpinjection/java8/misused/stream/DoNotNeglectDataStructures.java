@@ -30,7 +30,7 @@ public class DoNotNeglectDataStructures {
     }
 
     class Order {
-        public Status getStatus() {
+        Status getStatus() {
             return null; //stub
         }
     }
