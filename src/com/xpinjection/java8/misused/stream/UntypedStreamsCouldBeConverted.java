@@ -1,4 +1,4 @@
-package com.xpinjection.java8.misused.lambda.collections;
+package com.xpinjection.java8.misused.stream;
 
 import com.xpinjection.java8.misused.Annotations.Good;
 import com.xpinjection.java8.misused.Annotations.Ugly;
