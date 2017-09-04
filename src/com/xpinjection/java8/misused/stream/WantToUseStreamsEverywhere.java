@@ -9,17 +9,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toMap;
 
 public class WantToUseStreamsEverywhere {
     @Ugly
     class UseStreamToBuildMap {
         public Map<String, Object> getJpaProperties() {
-            return Collections.unmodifiableMap(
-                    Stream.of(
-                            new AbstractMap.SimpleEntry<>("hibernate.show_sql", "true"),
-                            new AbstractMap.SimpleEntry<>("hibernate.format_sql", "true")
-                    ).collect(toMap(Map.Entry::getKey, Map.Entry::getValue))
+            return Stream.of(
+                    new AbstractMap.SimpleEntry<>("hibernate.show_sql", "true"),
+                    new AbstractMap.SimpleEntry<>("hibernate.format_sql", "true")
+            ).collect(collectingAndThen(
+                    toMap(Map.Entry::getKey, Map.Entry::getValue),
+                    Collections::unmodifiableMap)
             );
         }
     }
