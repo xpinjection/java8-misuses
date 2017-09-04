@@ -50,8 +50,8 @@ public class RichDomainModel {
         }
 
         class BetterUser extends User {
-            BetterUser(long id, String name) {
-                super(id, name);
+            BetterUser(long id, String name, int age) {
+                super(id, name, age);
             }
 
             boolean hasRole(String roleName) {

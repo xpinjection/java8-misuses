@@ -48,6 +48,6 @@ public class StrictCheckOfValuePresence {
 
     private Optional<User> findById(Long userId) {
         //search in DB
-        return Optional.of(new User(5L, "Mikalai"));
+        return Optional.of(new User(5L, "Mikalai", 33));
     }
 }

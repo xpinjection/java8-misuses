@@ -9,9 +9,10 @@ public class User {
     private int age;
     private Set<Role> roles = new HashSet<>();
 
-    public User(long id, String name) {
+    public User(long id, String name, int age) {
         this.id = id;
         this.name = name;
+        this.age = age;
     }
 
     public Long getId() {

@@ -1,5 +1,6 @@
 package com.xpinjection.java8.misused.stream;
 
+import com.xpinjection.java8.misused.Annotations.Good;
 import com.xpinjection.java8.misused.Annotations.Ugly;
 import com.xpinjection.java8.misused.User;
 
@@ -22,7 +23,7 @@ public class AvoidLoopsInStreams {
         }
     }
     
-    @Ugly
+    @Good
     class ApplyMappingsToTargetType {
         public double countAverageRolesPerUser() {
             return users.stream()
