@@ -1,4 +1,4 @@
-package com.xpinjection.java8.misused.optional;
+package com.xpinjection.java8.misused.optional.usage;
 
 import com.xpinjection.java8.misused.Annotations.Good;
 import com.xpinjection.java8.misused.Annotations.Ugly;

@@ -31,10 +31,9 @@ public class EmulateMultimap {
     @Good
     class ComputeEmptySetIfKeyIsAbsent {
         public void addUser(User user) {
-            user.getRoles().forEach(r -> {
-                usersByRole.computeIfAbsent(r.getName(),
-                        k -> new HashSet<>()).add(user);
-            });
+            user.getRoles().forEach(r -> usersByRole
+                    .computeIfAbsent(r.getName(), k -> new HashSet<>())
+                    .add(user));
         }
 
         public Set<User> getUsersInRole(String role) {
