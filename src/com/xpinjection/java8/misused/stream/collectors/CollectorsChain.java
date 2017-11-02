@@ -20,7 +20,7 @@ public class CollectorsChain {
                     .collect(toMap(
                             Map.Entry::getKey,
                             e -> e.getValue().stream()
-                                    .mapToInt(User::getAge)
+                                    .map(User::getAge)
                                     .reduce(0, Integer::max)
                     ));
         }
@@ -49,7 +49,8 @@ public class CollectorsChain {
     class ApplyReduceCollectorAsDownstream {
         public Map<String, Integer> getMaxAgeByUserName(List<User> users) {
             return users.stream()
-                    .collect(groupingBy(User::getName, mapping(User::getAge,
+                    .collect(groupingBy(User::getName,
+                            mapping(User::getAge,
                             reducing(0, Integer::max))));
         }
     }
