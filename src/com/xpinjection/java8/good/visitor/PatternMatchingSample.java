@@ -7,7 +7,7 @@ import java.util.function.Function;
 /**
  * @author Alimenkou Mikalai
  */
-public class ModernVisitorClient {
+public class PatternMatchingSample {
     private final static Function<Object, Double> AREA_CALCULATOR = new LambdaVisitor<Double>()
             .on(Square.class).then(s -> s.getSide() * s.getSide())
             .on(Circle.class).then(c -> Math.PI * c.getRadius() * c.getRadius())
