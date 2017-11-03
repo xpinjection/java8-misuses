@@ -57,4 +57,14 @@ public class MatchElementInFunctionalStyle {
                     .anyMatch(r -> r.getPermissions().contains(permission));
         }
     }
+
+    @Good
+    class UseFlatMapWithMethodReferencesForSubCollections {
+        public boolean checkPermission(Permission permission) {
+            return users.stream()
+                    .map(User::getRoles)
+                    .flatMap(Set::stream)
+                    .anyMatch(r -> r.getPermissions().contains(permission));
+        }
+    }
 }

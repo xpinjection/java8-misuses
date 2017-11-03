@@ -1,4 +1,4 @@
-package com.xpinjection.java8.good.methods;
+package com.xpinjection.java8.good.dsl;
 
 import java.util.stream.Stream;
 
