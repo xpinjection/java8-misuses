@@ -8,6 +8,7 @@ import java.util.function.Function;
 public class LambdaChainSample {
     public static void main(String[] args) {
         int digitsCount = startWith(String::trim)
+                .andThen(String::toUpperCase)
                 .andThen(wrap(counter())::count)
                 .apply(" \n 123 \t");
         System.out.println(digitsCount + " digits found");
@@ -17,7 +18,7 @@ public class LambdaChainSample {
         return new NaiveDigitCounter();
     }
 
-    private static Function<String, String> startWith(Function<String, String> function) {
+    private static <T, R> Function<T, R> startWith(Function<T, R> function) {
         return function;
     }
 
