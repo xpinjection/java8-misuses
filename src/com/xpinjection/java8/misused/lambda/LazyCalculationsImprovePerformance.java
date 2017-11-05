@@ -1,5 +1,6 @@
 package com.xpinjection.java8.misused.lambda;
 
+import com.xpinjection.java8.misused.Annotations.Good;
 import com.xpinjection.java8.misused.Annotations.Ugly;
 import com.xpinjection.java8.misused.User;
 
@@ -25,7 +26,7 @@ public class LazyCalculationsImprovePerformance {
         }
     }
 
-    @Ugly
+    @Good
     static class PassLambdaToLazyCalculateValueForLogMessage {
         private static final Log LOG = null; // init logger with factory
 
